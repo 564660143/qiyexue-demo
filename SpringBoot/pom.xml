@@ -18,6 +18,7 @@
 		<module>springboot-config</module>
 		<module>springboot-profile</module>
 		<module>springboot-exception</module>
+		<module>springboot-interceptor</module>
 	</modules>
 
 	<properties>
