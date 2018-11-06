@@ -1,4 +1,3 @@
-
 <?xml version="1.0"?>
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
@@ -17,6 +16,8 @@
 		<module>quick-start</module>
 		<module>springboot-base</module>
 		<module>springboot-config</module>
+		<module>springboot-profile</module>
+		<module>springboot-exception</module>
 	</modules>
 
 	<properties>
@@ -40,10 +41,48 @@
 	</dependencyManagement>
 
 	<build>
+		<resources>
+		<resource>
+			<directory>src/main/resources</directory>
+			<includes>
+				<include>**/*.properties</include>
+				<include>**/*.yml</include>
+				<include>**/*.xml</include>
+				<include>**/*.tld</include>
+			</includes>
+			<filtering>false</filtering>
+		</resource>
+		<resource>
+			<directory>src/main/java</directory>
+			<includes>
+				<include>**/*.properties</include>
+				<include>**/*.xml</include>
+				<include>**/*.tld</include>
+			</includes>
+			<filtering>false</filtering>
+		</resource>
+		<resource>
+			<directory>src/main/view</directory>
+			<includes>
+				<include>**/*.*</include>
+			</includes>
+			<filtering>false</filtering>
+		</resource>
+	</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration> <!-- 设置程序执行的主类 -->
+					<mainClass>qiyexue.MainSpringBootApplication</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

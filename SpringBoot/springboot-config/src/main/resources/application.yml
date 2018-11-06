@@ -1,5 +1,7 @@
 spring: # 表示该配置直接为Spring容器负责处理
   messages: # 表示进行资源配置
     basename: i18n/Messages,i18n/Pages # 资源文件的名称
+  thymeleaf:
+    suffix: .html
 server:
   port: 80 # 此处设置的服务的访问端口配置
